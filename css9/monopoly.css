@@ -1,0 +1,277 @@
+@charset "UTF-8";
+body {
+  background: #1e1f26;
+  perspective: 1050px;
+  perspective-origin: 50% 100px;
+  overflow: hidden;
+}
+
+.monopoly-board {
+  width: 100%;
+  max-width: 750px;
+  margin: 20px auto;
+  position: relative;
+}
+.monopoly-board .roads-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 100%;
+  height: 0;
+  background-color: #d2e2c7;
+  transform: rotateX(75deg) rotateZ(0deg);
+  animation: rotate linear 25s;
+  animation-iteration-count: infinite;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.monopoly-board .roads-wrapper:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transform: rotate(45deg);
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/230827/monopoly.jpg");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.monopoly-board .roads-wrapper .row {
+  position: absolute;
+  width: 84.5%;
+}
+.monopoly-board .roads-wrapper .row > div {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  width: 100%;
+  border-top: 3px solid #201e21;
+}
+.monopoly-board .roads-wrapper .row > div .corner {
+  width: 18%;
+  padding-bottom: 18%;
+  height: 0;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.monopoly-board .roads-wrapper .row > div .corner > span {
+  position: absolute;
+  text-transform: uppercase;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-weight: 900;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.monopoly-board .roads-wrapper .row > div .corner > span small {
+  font-size: 10px;
+  display: block;
+  font-weight: 100;
+  text-transform: initial;
+  text-align: center;
+}
+.monopoly-board .roads-wrapper .row > div .corner.start > span {
+  font-size: 40px;
+}
+.monopoly-board .roads-wrapper .row > div .corner.start > span:after {
+  content: "";
+  font-family: "Font Awesome 5 Pro";
+  display: block;
+  font-size: 50px;
+  color: #cd0722;
+  font-weight: 500;
+  line-height: 21px;
+}
+.monopoly-board .roads-wrapper .row > div .corner.bugs > span {
+  font-size: 25px;
+}
+.monopoly-board .roads-wrapper .row > div .corner.bugs > span:before {
+  content: "";
+  font-family: "Font Awesome 5 Pro";
+  display: block;
+  font-size: 30px;
+  color: #cd0722;
+  font-weight: bold;
+  line-height: 35px;
+}
+.monopoly-board .roads-wrapper .row > div .corner.coffee > span {
+  font-size: 15px;
+  text-align: center;
+}
+.monopoly-board .roads-wrapper .row > div .corner.coffee > span:before {
+  content: "";
+  font-family: "Font Awesome 5 Pro";
+  display: block;
+  font-size: 25px;
+  color: #784d3c;
+  font-weight: bold;
+  line-height: 35px;
+}
+.monopoly-board .roads-wrapper .row > div .corner.error > span {
+  text-align: center;
+}
+.monopoly-board .roads-wrapper .row > div > ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 0;
+  margin: 0;
+  width: calc(82% - 3px );
+  border-right: 3px solid #201e21;
+}
+.monopoly-board .roads-wrapper .row > div > ul li {
+  width: 100%;
+  border-left: 3px solid #201e21;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+.monopoly-board .roads-wrapper .row > div > ul li:last-child {
+  border-left: 0;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.chance {
+  justify-content: flex-start;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.chance .chance-name {
+  font-size: 10px;
+  padding-top: 15%;
+  text-align: center;
+  text-transform: uppercase;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.chance .picto {
+  text-align: center;
+  padding-top: 15px;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.chance .picto:before {
+  font-family: "Font Awesome 5 Pro";
+  color: #201e21;
+  font-size: 35px;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.chance.like .picto:before {
+  content: "";
+}
+.monopoly-board .roads-wrapper .row > div > ul li.chance.pinned .picto:before {
+  content: "";
+}
+.monopoly-board .roads-wrapper .row > div > ul li.chance.follow .picto:before {
+  content: "";
+  font-weight: bold;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.chance.fork .picto:before {
+  content: "";
+}
+.monopoly-board .roads-wrapper .row > div > ul li.station {
+  text-align: center;
+  text-transform: uppercase;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.station .road-name {
+  justify-content: center;
+  font-size: 10px;
+  padding-top: 15%;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.station .road-name:after {
+  content: "";
+  font-family: "Font Awesome 5 Pro";
+  display: block;
+  font-size: 35px;
+  padding-top: 10px;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.road {
+  text-align: center;
+  text-transform: uppercase;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.road:before {
+  content: "";
+  height: 20%;
+  width: 100%;
+  display: block;
+  border-bottom: 3px solid #201e21;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.road .road-name {
+  display: flex;
+  padding-top: 50%;
+  justify-content: center;
+  font-size: 10px;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.road.brown:before {
+  background: #784d3c;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.road.light-blue:before {
+  background: #badbee;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.road.purple:before {
+  background: #aa3b80;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.road.orange:before {
+  background: #d58a37;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.road.red:before {
+  background: #cd0722;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.road.yellow:before {
+  background: #fff139;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.road.green:before {
+  background: #5fa55d;
+}
+.monopoly-board .roads-wrapper .row > div > ul li.road.blue:before {
+  background: #2c67a1;
+}
+.monopoly-board .roads-wrapper .row > div > ul li .price {
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
+  padding-bottom: 10px;
+}
+.monopoly-board .roads-wrapper .row > div > ul li .price:before {
+  content: "";
+  font-family: "Font Awesome 5 Brands";
+  margin-right: 5px;
+}
+.monopoly-board .roads-wrapper .row:nth-child(1) {
+  bottom: 0;
+  right: 0;
+}
+.monopoly-board .roads-wrapper .row:nth-child(2) {
+  top: 100%;
+  right: 84.5%;
+  transform: rotate(90deg);
+  transform-origin: 100% 0%;
+}
+.monopoly-board .roads-wrapper .row:nth-child(3) {
+  top: 15.5%;
+  right: 100%;
+  transform: rotate(180deg);
+  transform-origin: 100% 0;
+}
+.monopoly-board .roads-wrapper .row:nth-child(4) {
+  top: 0;
+  left: 0;
+  transform: rotate(270deg);
+  transform-origin: 100% 0;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateX(75deg) rotateZ(45deg);
+  }
+  50% {
+    transform: rotateX(80deg) rotateZ(-202deg);
+  }
+  to {
+    transform: rotateX(75deg) rotateZ(-405deg);
+  }
+}

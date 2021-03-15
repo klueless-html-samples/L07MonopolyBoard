@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
+body {
+    /* font-family: 'Indie Flower', cursive; */
+    font-family: Arial;
+    margin: 0;
+    padding: 32px;
+    width: 100vw;
+    position: relative;
+/*     min-height: 100vh; */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: 40px 40px;
+    background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px);
+    //overflow: hidden;
+}
+
+.label {
+    font-family: 'Indie Flower', cursive;
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.default-svg {
+    width: 20%; 
+    max-width: 200px;
+    cursor: pointer;   
+    display: none;
+    transform: scale(1);
+    outline: none;
+    
+}
+
+.chooser-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 500px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-size: 20px 20px;
+        background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px);
+    }
+    .chooser-wrapper {
+        justify-content: space-between;
+    }
+    .chooser-wrapper > svg {
+        width: 40%;
+        margin-bottom: 16px;
+    }
+}
+
+.selected-svg {
+    animation-name: selected-animation;
+    animation-duration: 200ms;
+    transform: rotate(0deg) scale(1.2);
+}
+
+@keyframes selected-animation {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    26% {
+        transform: rotate(0deg) scale(1.066);
+    }
+    33% {
+        transform: rotate(10deg) scale(1.066);
+    }
+    59% {
+        transform: rotate(-10deg) scale(1.133);
+    }
+    66% {
+        transform: rotate(-10deg) scale(1.133);
+    }
+    100% {
+        transform: rotate(0deg) scale(1.2);
+    }
+}
